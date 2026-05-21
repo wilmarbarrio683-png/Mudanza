@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>MudanzasExpress PRO</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --primary:#2563eb;
+  --primary-dark:#1747b3;
+  --secondary:#ff7a00;
+  --dark:#0f172a;
+  --light:#f8fafc;
+  --gray:#64748b;
+  --success:#10b981;
+  --white:#ffffff;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--light);
+  color:#222;
+  overflow-x:hidden;
+}
+
+/* HEADER */
+
+header{
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:18px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(10px);
+  box-shadow:0 4px 20px rgba(0,0,0,0.05);
+  z-index:1000;
+}
+
+.logo{
+  font-size:30px;
+  font-weight:700;
+  color:var(--primary);
+}
+
+nav{
+  display:flex;
+  gap:25px;
+}
+
+nav a{
+  text-decoration:none;
+  color:#222;
+  font-weight:500;
+  transition:.3s;
+  position:relative;
+}
+
+nav a::after{
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  width:0%;
+  height:2px;
+  background:var(--primary);
+  transition:.3s;
+}
+
+nav a:hover{
+  color:var(--primary);
+}
+
+nav a:hover::after{
+  width:100%;
+}
+
+/* HERO */
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:140px 8% 80px;
+  background:
+  linear-gradient(rgba(15,23,42,.8),rgba(15,23,42,.8)),
+  url('https://images.unsplash.com/photo-1600518464441-9154a4dea21b?q=80&w=1400&auto=format&fit=crop') center/cover;
+  color:white;
+  gap:60px;
+}
+
+.hero-text{
+  width:50%;
+  animation:fadeLeft 1s ease;
+}
+
+.hero-text h1{
+  font-size:64px;
+  line-height:1.1;
+  margin-bottom:25px;
+}
+
+.hero-text p{
+  font-size:20px;
+  line-height:1.8;
+  margin-bottom:35px;
+  color:#e2e8f0;
+}
+
+/* BOTONES PRO */
+
+.btn{
+  border:none;
+  padding:16px 34px;
+  border-radius:12px;
+  cursor:pointer;
+  font-size:17px;
+  font-weight:600;
+  transition:.3s;
+  position:relative;
+  overflow:hidden;
+}
+
+.btn-primary{
+  background:linear-gradient(135deg,var(--secondary),#ff9500);
+  color:white;
+  box-shadow:0 10px 25px rgba(255,122,0,.3);
+}
+
+.btn-primary:hover{
+  transform:translateY(-3px) scale(1.02);
+  box-shadow:0 15px 35px rgba(255,122,0,.5);
+}
+
+.btn-primary:active{
+  transform:scale(.97);
+}
+
+.quote-box{
+  width:420px;
+  background:rgba(255,255,255,.95);
+  padding:35px;
+  border-radius:24px;
+  backdrop-filter:blur(10px);
+  box-shadow:0 20px 50px rgba(0,0,0,.3);
+  animation:fadeUp 1s ease;
+}
+
+.quote-box h2{
+  color:var(--primary);
+  margin-bottom:25px;
+  text-align:center;
+  font-size:30px;
+}
+
+.input-group{
+  margin-bottom:18px;
+}
+
+input,
+select,
+textarea{
+  width:100%;
+  padding:14px;
+  border:2px solid #e2e8f0;
+  border-radius:12px;
+  font-size:15px;
+  transition:.3s;
+  outline:none;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+  border-color:var(--primary);
+  box-shadow:0 0 0 5px rgba(37,99,235,.1);
+}
+
+/* SECCIONES */
+
+section{
+  padding:100px 8%;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:60px;
+}
+
+.section-title h2{
+  font-size:45px;
+  color:var(--dark);
+  margin-bottom:10px;
+}
+
+.section-title p{
+  color:var(--gray);
+}
+
+/* CARDS */
+
+.features{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+}
+
+.card{
+  background:white;
+  padding:35px;
+  border-radius:22px;
+  box-shadow:0 10px 30px rgba(0,0,0,.06);
+  transition:.4s;
+  position:relative;
+  overflow:hidden;
+}
+
+.card::before{
+  content:'';
+  position:absolute;
+  width:100%;
+  height:5px;
+  background:linear-gradient(to right,var(--primary),var(--secondary));
+  top:0;
+  left:0;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 25px 50px rgba(0,0,0,.12);
+}
+
+.card h3{
+  margin:20px 0;
+  color:var(--primary);
+  font-size:24px;
+}
+
+.card p{
+  color:var(--gray);
+  line-height:1.7;
+}
+
+/* HOW */
+
+.how{
+  background:#eef4ff;
+}
+
+.steps{
+  display:flex;
+  flex-wrap:wrap;
+  gap:30px;
+  justify-content:center;
+}
+
+.step{
+  width:320px;
+  background:white;
+  padding:40px 30px;
+  border-radius:22px;
+  text-align:center;
+  box-shadow:0 10px 30px rgba(0,0,0,.07);
+  transition:.4s;
+}
+
+.step:hover{
+  transform:translateY(-8px);
+}
+
+.step-number{
+  width:70px;
+  height:70px;
+  background:linear-gradient(135deg,var(--primary),#60a5fa);
+  color:white;
+  margin:auto;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:28px;
+  font-weight:bold;
+  margin-bottom:20px;
+}
+
+/* TABLA */
+
+.table-container{
+  overflow-x:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  background:white;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,.06);
+}
+
+thead{
+  background:linear-gradient(to right,var(--primary),#3b82f6);
+  color:white;
+}
+
+th{
+  padding:18px;
+  text-align:left;
+}
+
+td{
+  padding:18px;
+  border-bottom:1px solid #eee;
+}
+
+tr:hover{
+  background:#f8fafc;
+}
+
+.price{
+  font-weight:bold;
+  color:var(--success);
+}
+
+/* CONTACTO */
+
+.contact-card{
+  max-width:650px;
+  margin:auto;
+}
+
+/* FOOTER */
+
+footer{
+  background:var(--dark);
+  color:white;
+  text-align:center;
+  padding:60px 20px;
+}
+
+footer h2{
+  margin-bottom:15px;
+}
+
+/* ANIMACIONES */
+
+@keyframes fadeLeft{
+  from{
+    opacity:0;
+    transform:translateX(-50px);
+  }
+  to{
+    opacity:1;
+    transform:translateX(0);
+  }
+}
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* RESPONSIVE */
+
+@media(max-width:950px){
+
+.hero{
+  flex-direction:column;
+  text-align:center;
+}
+
+.hero-text{
+  width:100%;
+}
+
+.hero-text h1{
+  font-size:46px;
+}
+
+.quote-box{
+  width:100%;
+}
+
+nav{
+  display:none;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">MudanzasExpress</div>
+
+<nav>
+<a href="#inicio">Inicio</a>
+<a href="#funciones">Servicios</a>
+<a href="#reservas">Reservas</a>
+<a href="#contacto">Contacto</a>
+</nav>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="inicio">
+
+<div class="hero-text">
+
+<h1>Mudanzas rápidas, modernas y seguras</h1>
+
+<p>
+Reserva online en segundos, seguimiento GPS,
+inventario inteligente y cotización automática.
+</p>
+
+<button class="btn btn-primary">
+🚚 Reservar Ahora
+</button>
+
+</div>
+
+<!-- FORM -->
+
+<div class="quote-box">
+
+<h2>Cotización rápida</h2>
+
+<div class="input-group">
+<input type="text" id="origen" placeholder="Ciudad origen">
+</div>
+
+<div class="input-group">
+<input type="text" id="destino" placeholder="Ciudad destino">
+</div>
+
+<div class="input-group">
+<select id="cajas">
+<option value="">Número de cajas</option>
+<option>1 - 10</option>
+<option>10 - 20</option>
+<option>20+</option>
+</select>
+</div>
+
+<div class="input-group">
+<select id="piso">
+<option value="">Piso</option>
+<option>1</option>
+<option>2</option>
+<option>3+</option>
+</select>
+</div>
+
+<div class="input-group">
+<input type="date" id="fecha">
+</div>
+
+<button class="btn btn-primary" id="guardarBtn">
+💾 Guardar Reserva
+</button>
+
+</div>
+
+</section>
+
+<!-- SERVICIOS -->
+
+<section id="funciones">
+
+<div class="section-title">
+<h2>Funciones Inteligentes</h2>
+<p>Tecnología moderna para tu mudanza</p>
+</div>
+
+<div class="features">
+
+<div class="card">
+<h3>📦 Inventario Digital</h3>
+<p>Calcula automáticamente volumen, cajas y precio total.</p>
+</div>
+
+<div class="card">
+<h3>🚚 GPS en Tiempo Real</h3>
+<p>Visualiza tu camión y ubicación exacta en vivo.</p>
+</div>
+
+<div class="card">
+<h3>💳 Pagos Online</h3>
+<p>Pagos rápidos con tarjetas, PayPal y transferencias.</p>
+</div>
+
+<div class="card">
+<h3>🤖 IA Organizadora</h3>
+<p>Checklist automática y recordatorios inteligentes.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- HOW -->
+
+<section class="how">
+
+<div class="section-title">
+<h2>¿Cómo funciona?</h2>
+</div>
+
+<div class="steps">
+
+<div class="step">
+<div class="step-number">1</div>
+<h3>Cotiza</h3>
+<p>Completa el formulario en menos de 1 minuto.</p>
+</div>
+
+<div class="step">
+<div class="step-number">2</div>
+<h3>Reserva</h3>
+<p>Selecciona fecha y confirma tu servicio online.</p>
+</div>
+
+<div class="step">
+<div class="step-number">3</div>
+<h3>Seguimiento</h3>
+<p>Monitorea tu mudanza en tiempo real.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- TABLA -->
+
+<section id="reservas">
+
+<div class="section-title">
+<h2>Reservas Guardadas</h2>
+</div>
+
+<div class="table-container">
+
+<table>
+
+<thead>
+
+<tr>
+<th>ID</th>
+<th>Origen</th>
+<th>Destino</th>
+<th>Cajas</th>
+<th>Piso</th>
+<th>Fecha</th>
+<th>Precio</th>
+</tr>
+
+</thead>
+
+<tbody id="tablaReservas"></tbody>
+
+</table>
+
+</div>
+
+</section>
+
+<!-- CONTACTO -->
+
+<section id="contacto">
+
+<div class="section-title">
+<h2>Contacto</h2>
+</div>
+
+<div class="card contact-card">
+
+<input type="text" placeholder="Nombre">
+
+<br><br>
+
+<input type="email" placeholder="Correo">
+
+<br><br>
+
+<textarea rows="5" placeholder="Mensaje"></textarea>
+
+<br><br>
+
+<button class="btn btn-primary">
+📩 Enviar mensaje
+</button>
+
+</div>
+
+</section>
+
+<footer>
+
+<h2>MudanzasExpress</h2>
+
+<p>
+© 2026 Todos los derechos reservados
+</p>
+
+</footer>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+/* BASE DE DATOS */
+
+let reservas = JSON.parse(localStorage.getItem("reservas")) || [];
+
+const guardarBtn = document.getElementById("guardarBtn");
+const tablaReservas = document.getElementById("tablaReservas");
+
+/* PRECIO */
+
+function calcularPrecio(cajas,piso){
+
+let precio = 50;
+
+if(cajas === "1 - 10") precio += 20;
+if(cajas === "10 - 20") precio += 50;
+if(cajas === "20+") precio += 100;
+
+if(piso === "2") precio += 15;
+if(piso === "3+") precio += 40;
+
+return precio;
+
+}
+
+/* MOSTRAR */
+
+function mostrarReservas(){
+
+tablaReservas.innerHTML = "";
+
+reservas.forEach((reserva,index)=>{
+
+tablaReservas.innerHTML += `
+
+<tr>
+
+<td>${index + 1}</td>
+
+<td>${reserva.origen}</td>
+
+<td>${reserva.destino}</td>
+
+<td>${reserva.cajas}</td>
+
+<td>${reserva.piso}</td>
+
+<td>${reserva.fecha}</td>
+
+<td class="price">$${reserva.precio}</td>
+
+</tr>
+
+`;
+
+});
+
+}
+
+/* GUARDAR */
+
+guardarBtn.addEventListener("click",()=>{
+
+const origen = document.getElementById("origen").value;
+const destino = document.getElementById("destino").value;
+const cajas = document.getElementById("cajas").value;
+const piso = document.getElementById("piso").value;
+const fecha = document.getElementById("fecha").value;
+
+if(
+origen === "" ||
+destino === "" ||
+cajas === "" ||
+piso === "" ||
+fecha === ""
+){
+
+alert("⚠️ Completa todos los campos");
+return;
+
+}
+
+const precio = calcularPrecio(cajas,piso);
+
+const nuevaReserva = {
+origen,
+destino,
+cajas,
+piso,
+fecha,
+precio
+};
+
+reservas.push(nuevaReserva);
+
+localStorage.setItem(
+"reservas",
+JSON.stringify(reservas)
+);
+
+mostrarReservas();
+
+alert(`
+✅ Reserva guardada correctamente
+
+💰 Precio estimado:
+$${precio} USD
+`);
+
+document.getElementById("origen").value = "";
+document.getElementById("destino").value = "";
+document.getElementById("cajas").value = "";
+document.getElementById("piso").value = "";
+document.getElementById("fecha").value = "";
+
+});
+
+/* ANIMACIÓN SCROLL */
+
+const observer = new IntersectionObserver(entries => {
+
+entries.forEach(entry => {
+
+if(entry.isIntersecting){
+
+entry.target.style.opacity = 1;
+entry.target.style.transform = "translateY(0px)";
+
+}
+
+});
+
+});
+
+document.querySelectorAll(".card,.step").forEach(el=>{
+
+el.style.opacity = 0;
+el.style.transform = "translateY(40px)";
+el.style.transition = ".7s";
+
+observer.observe(el);
+
+});
+
+mostrarReservas();
+
+</script>
+
+</body>
+</html>
